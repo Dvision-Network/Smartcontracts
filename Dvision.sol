@@ -97,7 +97,7 @@ contract ERC20Interface
     function transferFrom( address _from, address _to, uint _value) public returns (bool _success);
 }
 
-contract DvisionNetwork is ERC20Interface, OwnerHelper
+contract Dvision is ERC20Interface, OwnerHelper
 {
     using SafeMath for uint;
     
