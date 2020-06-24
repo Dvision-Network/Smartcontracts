@@ -341,6 +341,8 @@ contract Dvision is ERC20Interface, OwnerHelper
         require(tokens == tmVestingBalances[_time]);
         require(maxTeamSupply >= tokenIssuedTeam.add(tokens));
         
+        balances[msg.sender] = balances[msg.sender].sub(tokens);
+        
         balances[_to] = balances[_to].add(tokens);
         tmVestingBalances[_time] = 0;
         
@@ -362,6 +364,8 @@ contract Dvision is ERC20Interface, OwnerHelper
 
         require(tokens == advVestingBalances[_time]);
         require(maxAdvisorSupply >= tokenIssuedAdv.add(tokens));
+        
+        balances[msg.sender] = balances[msg.sender].sub(tokens);
         
         balances[_to] = balances[_to].add(tokens);
         advVestingBalances[_time] = 0;
